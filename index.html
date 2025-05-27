@@ -1193,24 +1193,30 @@
               width="400" height="300" loading="lazy"></iframe>
           </figure>
         </section>
-        
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="mailto:wujingtao102@163.com" method="post" enctype="text/plain">
-  <div class="input-wrapper">
-    <input type="text" name="fullname" class="form-input" placeholder="Full name" required>
-  </div>
-  <textarea name="message" class="form-input" placeholder="Your Message" required></textarea>
-  <button class="form-btn" type="submit">
+ <section class="contact-form">
+  <h3 class="h3 form-title">联系我</h3>
+  <textarea id="message" class="form-input" placeholder="请写下您的留言" required style="width:100%;height:120px;"></textarea>
+  <br>
+  <button class="form-btn" type="button" onclick="sendMail()">
     <ion-icon name="paper-plane"></ion-icon>
-    <span>Send Message</span>
+    <span>发送邮件</span>
   </button>
-</form>
+  <p style="color:#aaa;font-size:12px;margin-top:8px;">
+    如果没有自动弹出邮件窗口，请直接将留言发送到 <a href="mailto:wujingtao102@163.com">wujingtao102@163.com</a>
+  </p>
+</section>
 
-        </section>
+<script>
+function sendMail() {
+  var message = document.getElementById("message").value;
+  var subject = "网站留言";
+  var mailto_link = "mailto:wujingtao102@163.com"
+    + "?subject=" + encodeURIComponent(subject)
+    + "&body=" + encodeURIComponent(message);
 
+  window.location.href = mailto_link;
+}
+</script>
       </article>
 
     </div>
